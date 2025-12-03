@@ -1,4 +1,5 @@
 using Microsoft.EntityFrameworkCore;
+using AirBB.Models.DataLayer;
 using AirBB.Models.DataLayer.Configuration;
 using AirBB.Models.DataLayer.Repositories;
 
@@ -17,12 +18,9 @@ builder.Services.AddSession(options =>
 builder.Services.AddDbContext<AirBBContext>(options =>
     options.UseSqlite(builder.Configuration.GetConnectionString("AirBBContext")));
 
-// ✅ Register Repositories for Dependency Injection
-builder.Services.AddScoped<ResidenceRepository>();
-builder.Services.AddScoped<LocationRepository>();
-builder.Services.AddScoped<ReservationRepository>();
-builder.Services.AddScoped<AppUserRepository>();
-builder.Services.AddScoped<ClientRepository>();
+// ✅ Register Generic Repository for Dependency Injection
+// The generic Repository<T> provides CRUD operations for all entity types
+builder.Services.AddScoped(typeof(Repository<>));
 
 var app = builder.Build();
 

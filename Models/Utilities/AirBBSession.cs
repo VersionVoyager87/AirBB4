@@ -1,5 +1,5 @@
 using Microsoft.AspNetCore.Http;
-using AirBB.Models.DataLayer.Configuration;
+using AirBB.Models.DataLayer;
 using AirBB.Models.DomainModels;
 using AirBB.Models.ViewModels;
 using System.Collections.Generic;

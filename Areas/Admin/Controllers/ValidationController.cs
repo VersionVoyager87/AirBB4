@@ -2,7 +2,7 @@ using Microsoft.AspNetCore.Mvc;
 using System.Linq;
 using AirBB.Models.DomainModels;
 using AirBB.Models.ViewModels;
-using AirBB.Models.DataLayer.Configuration;
+using AirBB.Models.DataLayer;
 
 namespace AirBB.Areas.Admin.Controllers
 {

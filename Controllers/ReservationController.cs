@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using AirBB.Models;
 using AirBB.Models.DomainModels;
 using AirBB.Models.ViewModels;
-using AirBB.Models.DataLayer.Configuration;
+using AirBB.Models.DataLayer;
 using AirBB.Models.Utilities;
 
 namespace AirBB.Controllers

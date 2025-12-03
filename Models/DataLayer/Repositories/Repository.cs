@@ -1,5 +1,5 @@
 using Microsoft.EntityFrameworkCore;
-using AirBB.Models.DataLayer.Configuration;
+using AirBB.Models.DataLayer;
 
 namespace AirBB.Models.DataLayer.Repositories
 {

@@ -5,7 +5,7 @@ using AirBB.Models.DomainModels;
 using AirBB.Models.ViewModels;
 using System.Linq;
 using System.Collections.Generic;
-using AirBB.Models.DataLayer.Configuration;
+using AirBB.Models.DataLayer;
 
 namespace AirBB.Areas.Admin.Controllers
 {

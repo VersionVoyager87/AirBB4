@@ -1,6 +1,6 @@
 using System;
 using AirBB.Models.DomainModels;
-using AirBB.Models.DataLayer.Configuration;
+using AirBB.Models.DataLayer;
 using Microsoft.EntityFrameworkCore;
 
 namespace AirBB.Models.ViewModels
