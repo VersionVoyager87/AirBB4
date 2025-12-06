@@ -14,12 +14,7 @@ obj/
 # ASP.NET Core secrets
 secrets.json
 
-# Entity Framework Core
-Migrations/
 
-# Local database (SQLite)
-*.db
-*.sqlite
 
 # Logs
 *.log
