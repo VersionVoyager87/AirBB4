@@ -10,7 +10,7 @@ permissions:
   contents: read
 
 env:
-  AZURE_WEBAPP_NAME: AirBB3_Upd
+  AZURE_WEBAPP_NAME: airbb42025
   DOTNET_VERSION: '9.0.x'
 
 jobs:
@@ -39,5 +39,6 @@ jobs:
         with:
           app-name: ${{ env.AZURE_WEBAPP_NAME }}
           package: ./publish
+
 
 
