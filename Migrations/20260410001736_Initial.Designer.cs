@@ -11,7 +11,7 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AirBB.Migrations
 {
     [DbContext(typeof(AirBBContext))]
-    [Migration("20260409234210_Initial")]
+    [Migration("20260410001736_Initial")]
     partial class Initial
     {
         /// <inheritdoc />
