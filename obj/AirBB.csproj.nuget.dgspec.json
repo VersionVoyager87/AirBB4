@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\dhara\\Downloads\\Internet Programming\\AirBB3_Upd\\AirBB.csproj": {}
+    "C:\\Users\\dhara\\Downloads\\Internet Programming\\AirBB\\AirBB.csproj": {}
   },
   "projects": {
-    "C:\\Users\\dhara\\Downloads\\Internet Programming\\AirBB3_Upd\\AirBB.csproj": {
+    "C:\\Users\\dhara\\Downloads\\Internet Programming\\AirBB\\AirBB.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\dhara\\Downloads\\Internet Programming\\AirBB3_Upd\\AirBB.csproj",
+        "projectUniqueName": "C:\\Users\\dhara\\Downloads\\Internet Programming\\AirBB\\AirBB.csproj",
         "projectName": "AirBB",
-        "projectPath": "C:\\Users\\dhara\\Downloads\\Internet Programming\\AirBB3_Upd\\AirBB.csproj",
+        "projectPath": "C:\\Users\\dhara\\Downloads\\Internet Programming\\AirBB\\AirBB.csproj",
         "packagesPath": "C:\\Users\\dhara\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\dhara\\Downloads\\Internet Programming\\AirBB3_Upd\\obj\\",
+        "outputPath": "C:\\Users\\dhara\\Downloads\\Internet Programming\\AirBB\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\dhara\\AppData\\Roaming\\NuGet\\NuGet.Config"

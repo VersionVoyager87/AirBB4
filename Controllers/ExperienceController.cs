@@ -1,6 +1,6 @@
 using Microsoft.AspNetCore.Mvc;
 
-namespace AirBB.Models
+namespace AirBB.Controllers
 {
     public class ExperienceController : Controller
     {

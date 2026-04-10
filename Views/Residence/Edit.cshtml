@@ -1,0 +1,158 @@
+@model AirBB.Models.ViewModels.ResidenceAdminViewModel
+
+@{
+    ViewData["Title"] = "Edit Residence";
+}
+
+<h1 class="mb-4">Edit Residence</h1>
+
+@if (TempData["validationMessage"] != null)
+{
+    <div class="alert alert-danger">
+        @TempData["validationMessage"]
+    </div>
+}
+
+<div asp-validation-summary="ModelOnly" class="text-danger mb-3"></div>
+
+<form asp-action="Edit" method="post">
+    <input type="hidden" asp-for="Residence.ResidenceId" />
+
+    <div class="row mb-3">
+        <div class="col-md-2">
+            <label asp-for="Residence.LocationId" class="form-label"></label>
+        </div>
+        <div class="col-md-4">
+            <select asp-for="Residence.LocationId"
+                    asp-items="@(new SelectList(Model.Locations, "LocationId", "Name", Model.Residence.LocationId))"
+                    class="form-select">
+                <option value="">Select a location</option>
+            </select>
+        </div>
+        <div class="col-md-6">
+            <span asp-validation-for="Residence.LocationId" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-md-2">
+            <label asp-for="Residence.Name" class="form-label"></label>
+        </div>
+        <div class="col-md-4">
+            <input asp-for="Residence.Name" class="form-control" />
+        </div>
+        <div class="col-md-6">
+            <span asp-validation-for="Residence.Name" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-md-2">
+            <label asp-for="Residence.OwnerId" class="form-label"></label>
+        </div>
+        <div class="col-md-4">
+            <select asp-for="Residence.OwnerId"
+                    asp-items="@(new SelectList(Model.Owners, "UserId", "Name", Model.Residence.OwnerId))"
+                    class="form-select">
+                <option value="">-- Select Owner --</option>
+            </select>
+        </div>
+        <div class="col-md-6">
+            <span asp-validation-for="Residence.OwnerId" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-md-2">
+            <label asp-for="Residence.Accommodation" class="form-label"></label>
+        </div>
+        <div class="col-md-4">
+            <input asp-for="Residence.Accommodation" class="form-control" />
+        </div>
+        <div class="col-md-6">
+            <span asp-validation-for="Residence.Accommodation" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-md-2">
+            <label asp-for="Residence.Bedrooms" class="form-label"></label>
+        </div>
+        <div class="col-md-4">
+            <input asp-for="Residence.Bedrooms" class="form-control" />
+        </div>
+        <div class="col-md-6">
+            <span asp-validation-for="Residence.Bedrooms" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-md-2">
+            <label asp-for="Residence.Bathrooms" class="form-label"></label>
+        </div>
+        <div class="col-md-4">
+            <input asp-for="Residence.Bathrooms" class="form-control" />
+        </div>
+        <div class="col-md-6">
+            <span asp-validation-for="Residence.Bathrooms" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-md-2">
+            <label asp-for="Residence.BuiltYear" class="form-label"></label>
+        </div>
+        <div class="col-md-4">
+            <input asp-for="Residence.BuiltYear" class="form-control" />
+        </div>
+        <div class="col-md-6">
+            <span asp-validation-for="Residence.BuiltYear" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-md-2">
+            <label asp-for="Residence.GuestNumber" class="form-label"></label>
+        </div>
+        <div class="col-md-4">
+            <input asp-for="Residence.GuestNumber" class="form-control" />
+        </div>
+        <div class="col-md-6">
+            <span asp-validation-for="Residence.GuestNumber" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row mb-3">
+        <div class="col-md-2">
+            <label asp-for="Residence.PricePerNight" class="form-label"></label>
+        </div>
+        <div class="col-md-4">
+            <input asp-for="Residence.PricePerNight" class="form-control" />
+        </div>
+        <div class="col-md-6">
+            <span asp-validation-for="Residence.PricePerNight" class="text-danger"></span>
+        </div>
+    </div>
+
+    <div class="row mb-4">
+        <div class="col-md-2">
+            <label asp-for="Residence.ResidencePicture" class="form-label"></label>
+        </div>
+        <div class="col-md-4">
+            <input asp-for="Residence.ResidencePicture" class="form-control" />
+        </div>
+        <div class="col-md-6">
+            <span asp-validation-for="Residence.ResidencePicture" class="text-danger"></span>
+        </div>
+    </div>
+
+    <button type="submit" class="btn btn-primary me-2">Save</button>
+    <a asp-action="Index" class="btn btn-outline-secondary">Cancel</a>
+</form>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+    <script src="~/js/pastYear.js"></script>
+    <script src="~/js/validateBuiltYear.js"></script>
+    <script src="~/js/halfStepNumber.js"></script>
+}

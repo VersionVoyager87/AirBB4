@@ -15,8 +15,7 @@ namespace AirBB.Models.DataLayer.Configuration
                   .HasMaxLength(50);
 
             entity.Property(r => r.Accommodation)
-                  .IsRequired()
-                  .HasMaxLength(100);
+                  .IsRequired();
 
             entity.Property(r => r.PricePerNight)
                   .HasColumnType("decimal(10,2)");
@@ -27,16 +26,13 @@ namespace AirBB.Models.DataLayer.Configuration
             entity.Property(r => r.ResidencePicture)
                   .HasMaxLength(255);
 
-            // Foreign key relationship to Location
             entity.HasOne(r => r.Location)
                   .WithMany()
                   .HasForeignKey(r => r.LocationId)
                   .OnDelete(DeleteBehavior.Cascade)
                   .IsRequired();
 
-            // Seed residences
             entity.HasData(
-                // Chicago
                 new Residence
                 {
                     ResidenceId = 1,
@@ -44,7 +40,7 @@ namespace AirBB.Models.DataLayer.Configuration
                     ResidencePicture = "chi1.jpg",
                     LocationId = 1,
                     OwnerId = 1,
-                    Accommodation = "Full Apartment",
+                    Accommodation = 4,
                     Bedrooms = 2,
                     Bathrooms = 2m,
                     BuiltYear = 2000,
@@ -58,14 +54,13 @@ namespace AirBB.Models.DataLayer.Configuration
                     ResidencePicture = "chi2.jpg",
                     LocationId = 1,
                     OwnerId = 1,
-                    Accommodation = "Condo Suite",
+                    Accommodation = 2,
                     Bedrooms = 1,
                     Bathrooms = 1m,
                     BuiltYear = 2005,
                     GuestNumber = 2,
                     PricePerNight = 140m
                 },
-                // New York
                 new Residence
                 {
                     ResidenceId = 3,
@@ -73,7 +68,7 @@ namespace AirBB.Models.DataLayer.Configuration
                     ResidencePicture = "ny1.jpg",
                     LocationId = 2,
                     OwnerId = 2,
-                    Accommodation = "Loft",
+                    Accommodation = 3,
                     Bedrooms = 1,
                     Bathrooms = 1m,
                     BuiltYear = 2010,
@@ -87,14 +82,13 @@ namespace AirBB.Models.DataLayer.Configuration
                     ResidencePicture = "ny2.jpg",
                     LocationId = 2,
                     OwnerId = 2,
-                    Accommodation = "Brownstone Home",
+                    Accommodation = 4,
                     Bedrooms = 2,
                     Bathrooms = 1m,
                     BuiltYear = 1995,
                     GuestNumber = 4,
                     PricePerNight = 200m
                 },
-                // Miami
                 new Residence
                 {
                     ResidenceId = 5,
@@ -102,7 +96,7 @@ namespace AirBB.Models.DataLayer.Configuration
                     ResidencePicture = "miami1.jpg",
                     LocationId = 3,
                     OwnerId = 3,
-                    Accommodation = "Beach House",
+                    Accommodation = 6,
                     Bedrooms = 3,
                     Bathrooms = 2m,
                     BuiltYear = 2012,
@@ -116,14 +110,13 @@ namespace AirBB.Models.DataLayer.Configuration
                     ResidencePicture = "miami2.jpg",
                     LocationId = 3,
                     OwnerId = 3,
-                    Accommodation = "Condo",
+                    Accommodation = 2,
                     Bedrooms = 1,
                     Bathrooms = 1m,
                     BuiltYear = 2015,
                     GuestNumber = 2,
                     PricePerNight = 180m
                 },
-                // Atlanta
                 new Residence
                 {
                     ResidenceId = 7,
@@ -131,7 +124,7 @@ namespace AirBB.Models.DataLayer.Configuration
                     ResidencePicture = "atlanta1.jpg",
                     LocationId = 4,
                     OwnerId = 4,
-                    Accommodation = "Family House",
+                    Accommodation = 5,
                     Bedrooms = 3,
                     Bathrooms = 2m,
                     BuiltYear = 2003,
@@ -145,7 +138,7 @@ namespace AirBB.Models.DataLayer.Configuration
                     ResidencePicture = "atlanta2.jpg",
                     LocationId = 4,
                     OwnerId = 4,
-                    Accommodation = "Apartment",
+                    Accommodation = 3,
                     Bedrooms = 2,
                     Bathrooms = 1m,
                     BuiltYear = 2008,

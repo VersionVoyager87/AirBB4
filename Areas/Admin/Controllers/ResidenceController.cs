@@ -105,16 +105,19 @@ namespace AirBB.Areas.Admin.Controllers
 
         // ---------- HELPER ----------
         private ResidenceAdminViewModel LoadViewModel(Residence residence)
-        {
-            return new ResidenceAdminViewModel
-            {
-                Residence = residence,
-                Locations = _context.Locations.OrderBy(l => l.Name).ToList(),
-                Owners = _context.AppUsers
-                    .Where(u => u.UserType == "Owner")
-                    .OrderBy(u => u.Name)
-                    .ToList()
-            };
-        }
+    {
+        return new ResidenceAdminViewModel
+      {
+        Residence = residence,
+        Locations = _context.Locations
+            .OrderBy(l => l.Name)
+            .ToList(),
+        Owners = _context.AppUsers
+            .Where(u => u.UserType != null && u.UserType.ToLower() == "owner")
+            .OrderBy(u => u.Name)
+            .ToList()
+      };
     }
-}
+    }
+    }
+

@@ -11,8 +11,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace AirBB.Migrations
 {
     [DbContext(typeof(AirBBContext))]
-    [Migration("20251202232642_InitialCreate")]
-    partial class InitialCreate
+    [Migration("20260409234210_Initial")]
+    partial class Initial
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -190,10 +190,8 @@ namespace AirBB.Migrations
                         .ValueGeneratedOnAdd()
                         .HasColumnType("INTEGER");
 
-                    b.Property<string>("Accommodation")
-                        .IsRequired()
-                        .HasMaxLength(100)
-                        .HasColumnType("TEXT");
+                    b.Property<int>("Accommodation")
+                        .HasColumnType("INTEGER");
 
                     b.Property<decimal>("Bathrooms")
                         .HasColumnType("decimal(3,1)");
@@ -235,7 +233,7 @@ namespace AirBB.Migrations
                         new
                         {
                             ResidenceId = 1,
-                            Accommodation = "Full Apartment",
+                            Accommodation = 4,
                             Bathrooms = 2m,
                             Bedrooms = 2,
                             BuiltYear = 2000,
@@ -249,7 +247,7 @@ namespace AirBB.Migrations
                         new
                         {
                             ResidenceId = 2,
-                            Accommodation = "Condo Suite",
+                            Accommodation = 2,
                             Bathrooms = 1m,
                             Bedrooms = 1,
                             BuiltYear = 2005,
@@ -263,7 +261,7 @@ namespace AirBB.Migrations
                         new
                         {
                             ResidenceId = 3,
-                            Accommodation = "Loft",
+                            Accommodation = 3,
                             Bathrooms = 1m,
                             Bedrooms = 1,
                             BuiltYear = 2010,
@@ -277,7 +275,7 @@ namespace AirBB.Migrations
                         new
                         {
                             ResidenceId = 4,
-                            Accommodation = "Brownstone Home",
+                            Accommodation = 4,
                             Bathrooms = 1m,
                             Bedrooms = 2,
                             BuiltYear = 1995,
@@ -291,7 +289,7 @@ namespace AirBB.Migrations
                         new
                         {
                             ResidenceId = 5,
-                            Accommodation = "Beach House",
+                            Accommodation = 6,
                             Bathrooms = 2m,
                             Bedrooms = 3,
                             BuiltYear = 2012,
@@ -305,7 +303,7 @@ namespace AirBB.Migrations
                         new
                         {
                             ResidenceId = 6,
-                            Accommodation = "Condo",
+                            Accommodation = 2,
                             Bathrooms = 1m,
                             Bedrooms = 1,
                             BuiltYear = 2015,
@@ -319,7 +317,7 @@ namespace AirBB.Migrations
                         new
                         {
                             ResidenceId = 7,
-                            Accommodation = "Family House",
+                            Accommodation = 5,
                             Bathrooms = 2m,
                             Bedrooms = 3,
                             BuiltYear = 2003,
@@ -333,7 +331,7 @@ namespace AirBB.Migrations
                         new
                         {
                             ResidenceId = 8,
-                            Accommodation = "Apartment",
+                            Accommodation = 3,
                             Bathrooms = 1m,
                             Bedrooms = 2,
                             BuiltYear = 2008,

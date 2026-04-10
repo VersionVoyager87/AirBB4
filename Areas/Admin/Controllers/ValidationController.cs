@@ -1,7 +1,5 @@
 using Microsoft.AspNetCore.Mvc;
 using System.Linq;
-using AirBB.Models.DomainModels;
-using AirBB.Models.ViewModels;
 using AirBB.Models.DataLayer;
 
 namespace AirBB.Areas.Admin.Controllers
@@ -10,7 +8,11 @@ namespace AirBB.Areas.Admin.Controllers
     public class ValidationController : Controller
     {
         private readonly AirBBContext _context;
-        public ValidationController(AirBBContext context) => _context = context;
+
+        public ValidationController(AirBBContext context)
+        {
+            _context = context;
+        }
 
         [AcceptVerbs("Get", "Post")]
         public JsonResult CheckEmail(string email)
@@ -19,6 +21,25 @@ namespace AirBB.Areas.Admin.Controllers
             return exists
                 ? Json($"The email {email} is already taken.")
                 : Json(true);
+        }
+
+        [AcceptVerbs("Get", "Post")]
+        public JsonResult CheckOwner(int ownerId)
+        {
+            var user = _context.AppUsers
+                .FirstOrDefault(u => u.AppUserId == ownerId);
+
+            if (user == null)
+            {
+                return Json("Owner ID does not exist.");
+            }
+
+            if (user.UserType == null || user.UserType.ToLower() != "owner")
+            {
+                return Json("User must be an owner.");
+            }
+
+            return Json(true);
         }
     }
 }

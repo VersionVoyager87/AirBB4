@@ -1,8 +1,7 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
-using System.Linq;
 using System.Collections.Generic;
-using AirBB.Models;
+using System.Linq;
 using AirBB.Models.DomainModels;
 using AirBB.Models.ViewModels;
 using AirBB.Models.DataLayer;
@@ -16,10 +15,17 @@ namespace AirBB.Controllers
 
         public ResidenceController(AirBBContext ctx) => context = ctx;
 
+        // Phase 1 routing test action for Homes link
+        public IActionResult List(string id = "All")
+        {
+            return Content($"Area=Public, Controller=Residence, Action=List, ID={id}");
+        }
+
         [HttpGet]
         public IActionResult Details(int id)
         {
             var session = new AirBBSession(HttpContext.Session);
+
             var model = new ResidenceViewModel
             {
                 Criteria = session.GetFilter() ?? new(),
@@ -44,7 +50,6 @@ namespace AirBB.Controllers
             if (residence == null)
                 return RedirectToAction("Index", "Home");
 
-            // Create new reservation
             var reservation = new Reservation
             {
                 ReservationId = context.Reservations?.Any() == true
@@ -59,18 +64,14 @@ namespace AirBB.Controllers
             context.Reservations?.Add(reservation);
             context.SaveChanges();
 
-            // Get reservations from session (or empty if null)
             var reservations = session.GetReservations(context) ?? new List<Reservation>();
-
-            // Add the new reservation
             reservations.Add(reservation);
             session.SetReservations(reservations);
 
-            // Save only reservation IDs to cookie
             cookies.SetReservationIds(reservations);
 
             TempData["message"] = $"{residence.Name} reserved successfully!";
-            return RedirectToAction("Index", "Home"); // PRG pattern
+            return RedirectToAction("Index", "Home");
         }
     }
 }

@@ -37,6 +37,7 @@ namespace AirBB.Areas.Admin.Controllers
                 TempData["message"] = "Location added successfully.";
                 return RedirectToAction("Index");
             }
+            TempData["validationMessage"] = "Please fix the errors below.";
             return View(location);
         }
 
